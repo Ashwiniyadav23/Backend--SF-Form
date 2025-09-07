@@ -24,3 +24,6 @@ app.get('/', (_, res) => {
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
 });
+app.use('/',(req,res) =>{
+    res.send("API is working")
+})
