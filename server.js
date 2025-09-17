@@ -15,7 +15,6 @@ mongoose.connect(MONGO_URI)
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.error('MongoDB connection error:', err));
 
-// Setup CORS middleware to allow both local and deployed frontend
 const allowedOrigins = [
     'http://localhost:5173',
     'https://student-feedback-manager-hp.vercel.app'
@@ -31,24 +30,20 @@ app.use(cors({
     }
 }));
 
-// Middleware to parse JSON
 app.use(express.json());
 
 // Routes
 import feedbackRoutes from './routes/feedback.js';
 app.use('/api/feedback', feedbackRoutes);
 
-// Default route
 app.get('/', (_, res) => {
     res.send('Feedback API is running!');
 });
 
-// Catch-all route (optional)
 app.use('/', (req, res) => {
     res.send('Feedback API is working!');
 });
 
-// Start server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
