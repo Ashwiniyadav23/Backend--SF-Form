@@ -17,7 +17,7 @@ mongoose.connect(MONGO_URI)
 
 const allowedOrigins = [
     'http://localhost:5173',
-    'https://student-feedback-manager-hp.vercel.app'
+    'https://feedback-manager-lemon.vercel.app'
 ];
 
 app.use(cors({
